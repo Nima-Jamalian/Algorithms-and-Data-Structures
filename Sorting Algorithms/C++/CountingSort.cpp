@@ -1,4 +1,5 @@
 #include <iostream>
+
 void printVector(std::vector<int> &vector){
     for(int i=0; i<vector.size(); i++){
         if(i==0){
@@ -34,13 +35,12 @@ std::vector<int> countingSort(std::vector<int> vector){
     }
     
     //sort vector
-    int vectorIdx = 0, countIdx = 0;
-    while(countIdx < max + 1){
-        if(count[countIdx] > 0){
-            vector[vectorIdx++] = countIdx;
-            count[countIdx]--;
-        } else {
-            countIdx++;
+    int vectorIdx = 0;
+    for(int i=0; i<count.size(); i++){
+        while(count[i] != 0){
+            vector[vectorIdx] = i;
+            count[i] -=1;
+            vectorIdx++;
         }
     }
     return vector;
@@ -48,14 +48,13 @@ std::vector<int> countingSort(std::vector<int> vector){
 
 
 int main(int argc, const char * argv[]) {
-    std::vector<int> testCase = {1,2,5,2,10};
+    std::vector<int> testCase = {5,1,4,2,8};
     std::cout << "Input = ";
     printVector(testCase);
-     
+    
     
     std::vector<int> result = countingSort(testCase);
     std::cout << "Result = ";
     printVector(result);
-
     return 0;
 }

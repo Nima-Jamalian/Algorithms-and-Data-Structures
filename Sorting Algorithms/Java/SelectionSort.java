@@ -2,6 +2,11 @@ import java.util.Arrays;
 
 public class SelectionSort {
     
+    /*
+    Time O(n^2) | Space O(1)
+    Not Stable
+    Not Adaptive
+    */
     private static int[] selectionSort(int[] array){
         for(int i=0; i<array.length-1;i++){
             int minIdex = i;

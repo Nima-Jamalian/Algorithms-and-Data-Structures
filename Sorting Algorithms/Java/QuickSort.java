@@ -1,17 +1,14 @@
 import java.util.Arrays;
-public class QuckSort {
-/* function that consider last element as pivot,  
-place the pivot at its exact position, and place  
-smaller elements to left of pivot and greater  
-elements to right of pivot.  */  
+public class QuickSort {
+    
 static int partition (int a[], int start, int end)  
 {  
-    int pivot = a[end]; // pivot element  
+    int pivot = a[end];//pivot element  
     int i = (start - 1);  
   
     for (int j = start; j <= end - 1; j++)  
     {  
-        // If current element is smaller than the pivot  
+        //if current element is smaller than the pivot  
         if (a[j] < pivot)  
         {  
             i++; // increment index of smaller element  
@@ -23,14 +20,18 @@ static int partition (int a[], int start, int end)
     return (i);  
 }  
   
-/* function to implement quick sort */  
-static void quickSort(int a[], int start, int end) /* a[] = array to be sorted, start = Starting index, end = Ending index */  
+/*
+ Time O(n*logn) | Space O(log n)
+ Not stable
+ Not adaptive
+ */
+static void quickSort(int array[], int start, int end) 
 {  
     if (start < end)  
     {  
-        int p = partition(a, start, end);  //p is partitioning index  
-        quickSort(a, start, p - 1);  
-        quickSort(a, p + 1, end);  
+        int p = partition(array, start, end);//p is partitioning index  
+        quickSort(array, start, p - 1);  
+        quickSort(array, p + 1, end);  
     }  
 }  
 

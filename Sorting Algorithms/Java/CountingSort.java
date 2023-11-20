@@ -1,6 +1,11 @@
 import java.util.Arrays;
 public class CountingSort {
 
+    /*
+     Time O(n+k) | Space O(k)
+     Stable
+     Not adaptive
+     */
     public static int[] CountingSort(int[] array){
         //Get he maximum element
         int max = Arrays.stream(array).max().getAsInt();

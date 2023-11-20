@@ -2,6 +2,11 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
+    /*
+    Time O(n^2) | Space O(1)
+    Stable
+    Adaptive
+    */
     private static int[] bubbleSort(int[] array){
         boolean hasSwapped = false;
         for(int i=0; i<array.length-1; i++){
