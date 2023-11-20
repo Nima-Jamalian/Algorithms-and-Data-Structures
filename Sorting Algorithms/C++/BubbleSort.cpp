@@ -19,7 +19,12 @@ void swap(std::vector<int> &vector, int i, int j){
     vector[i] = temp;
 }
 
-std::vector<int> bubbleSort(std::vector<int> vector){
+/*
+Time O(n^2) | Space O(1)
+Stable
+Adaptive
+*/
+std::vector<int> bubbleSort(std::vector<int> &vector){
     bool hasSwapped = false;
     for(int i=0; i<vector.size(); i++){
         hasSwapped = true;

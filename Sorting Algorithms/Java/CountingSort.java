@@ -7,7 +7,7 @@ public class CountingSort {
      Not adaptive
      */
     public static int[] CountingSort(int[] array){
-        //Get he maximum element
+        //get the maximum element
         int max = Arrays.stream(array).max().getAsInt();
 
         //create count array

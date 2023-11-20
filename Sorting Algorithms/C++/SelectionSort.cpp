@@ -19,7 +19,12 @@ void swap(std::vector<int> &vector, int i, int j){
     vector[i] = temp;
 }
 
-std::vector<int> selectionSort(std::vector<int> vector){
+/*
+Time O(n^2) | Space O(1)
+Not Stable
+Not Adaptive
+*/
+std::vector<int> selectionSort(std::vector<int> &vector){
     for(int i=0; i<vector.size(); i++){
         int minIdx = i;
         for(int j=i; j<vector.size(); j++){

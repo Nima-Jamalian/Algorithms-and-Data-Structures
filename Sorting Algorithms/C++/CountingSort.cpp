@@ -13,18 +13,14 @@ void printVector(std::vector<int> &vector){
     }
 }
 
-int getMax(std::vector<int> &vector){
-    int max = vector[0];
-    for(int i=1; i<vector.size(); i++){
-        if(vector[i] > max){
-            max  = vector[i];
-        }
-    }
-    return max;
-}
-
-std::vector<int> countingSort(std::vector<int> vector){
-    int max = getMax(vector);
+/*
+ Time O(n+k) | Space O(k)
+ Stable
+ Not adaptive
+ */
+std::vector<int> countingSort(std::vector<int> &vector){
+    //get the maximum element
+    int max = *std::max_element(vector.begin(),vector.end());
     
     //create count vector
     std::vector<int> count(max + 1);

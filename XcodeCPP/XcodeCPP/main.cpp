@@ -13,39 +13,33 @@ void printVector(std::vector<int> &vector){
     }
 }
 
-void swap(std::vector<int> &vector, int i, int j){
-    int temp = vector[j];
-    vector[j] = vector[i];
-    vector[i] = temp;
-}
-
-int partition(std::vector<int> &vector, int start, int end){
-    int pivot = vector[end];//pivot element
-    int i = (start - 1);
-    
-    for(int j = start; j <= end - 1; j++){
-        //if current element is smaller than the pivot
-        if(vector[j] < pivot){
-            i++;//increment index of smaller element
-            swap(vector,i,j);
-        }
-    }
-    i++;
-    swap(vector, i,end);
-    return i;
-}
-
- /*
- Time O(n*logn) | Space O(log n)
- Not stable
+/*
+ Time O(n+k) | Space O(k)
+ Stable
  Not adaptive
  */
-void quickSort(std::vector<int> &vector, int start, int end){
-    if(start < end){
-        int p = partition(vector, start, end); //p is partitioning index
-        quickSort(vector, start, p-1);
-        quickSort(vector, p+1, end);
+std::vector<int> countingSort(std::vector<int> vector){
+    //get the maximum element
+    int max = *std::max_element(vector.begin(),vector.end());
+    
+    //create count vector
+    std::vector<int> count(max + 1);
+    
+    //populate count vector
+    for(int i=0; i<vector.size(); i++){
+        count[vector[i]]++;
     }
+    
+    //sort vector
+    int vectorIdx = 0;
+    for(int i=0; i<count.size(); i++){
+        while(count[i] != 0){
+            vector[vectorIdx] = i;
+            count[i] -=1;
+            vectorIdx++;
+        }
+    }
+    return vector;
 }
 
 
@@ -55,8 +49,8 @@ int main(int argc, const char * argv[]) {
     printVector(testCase);
     
     
-    quickSort(testCase,0, static_cast<int>(testCase.size() - 1));
+    std::vector<int> result = countingSort(testCase);
     std::cout << "Result = ";
-    printVector(testCase);
+    printVector(result);
     return 0;
 }
