@@ -19,12 +19,12 @@ public class CountingSort {
         }
         
         //sort array
-        int array_idx = 0;
+        int arrayIdx = 0;
         for(int i =0; i<count.length; i++){
             while(count[i] != 0){
-                array[array_idx] = i;
+                array[arrayIdx] = i;
                 count[i] -= 1;
-                array_idx++;
+                arrayIdx++;
             }
         }
         return array;
