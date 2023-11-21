@@ -23,13 +23,14 @@ int partition(std::vector<int> &vector, int start, int end){
     int pivot = vector[end];//pivot element
     int i = (start - 1);
     
-    for(int j = start; j <= end - 1; j++){
+    for(int j = start; j < end; j++){
         //if current element is smaller than the pivot
         if(vector[j] < pivot){
             i++;//increment index of smaller element
             swap(vector,i,j);
         }
     }
+    
     i++;
     swap(vector, i,end);
     return i;

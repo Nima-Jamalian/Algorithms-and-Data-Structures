@@ -6,7 +6,7 @@ static int partition (int a[], int start, int end)
     int pivot = a[end];//pivot element  
     int i = (start - 1);  
   
-    for (int j = start; j <= end - 1; j++)  
+    for (int j = start; j < end ; j++)  
     {  
         //if current element is smaller than the pivot  
         if (a[j] < pivot)  
