@@ -1,5 +1,6 @@
 public class LinearSearch {
 
+    //Time O(n) | Space O(1)
     private static int linearSearch(int array[], int key){
         for(int i=0; i< array.length; i++){
             if(array[i] == key){
@@ -17,7 +18,7 @@ public class LinearSearch {
         if(result == -1){
             System.out.println("Element is not present in array");
         } else {
-            System.out.println("Element is present ar index " + result);
+            System.out.println("Element is present at index " + result);
         }
     }
 }
