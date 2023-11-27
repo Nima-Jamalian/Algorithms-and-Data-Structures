@@ -24,11 +24,12 @@ public class BinarySearch {
                 return mid;
             }
             //if key is greater, ignore left half
-            if(array[mid] < key){
+            else if(array[mid] < key){
                 start = mid +1;
-            }
+            } else {
             //if key is smaller, ignore right half
             end = mid -1;
+            }
         }
         return -1;
     }
