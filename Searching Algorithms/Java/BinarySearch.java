@@ -1,34 +1,37 @@
 public class BinarySearch {
     //Time O(logn) | Space O(logn)
-    private static int recursiveBinarySearch(int array[],int start,int end, int key){
+    private static int recursiveBinarySearch(int array[], int start, int end,int key){
         if(start <= end){
-            int mid = start + ((end-start) / 2);
-            if(array[mid] == key){
+            int mid = start + ((end-start)/2);
+            //array[mid] is equal to value of key return index mid
+            if(array[mid]==key){
                 return mid;
-            } 
-            if (array[mid] > key){
-                return recursiveBinarySearch(array, start, mid - 1, key);
-            } 
-            return recursiveBinarySearch(array, mid + 1, end, key);
+            }
+            //if array[mid] is greater than key we can ignore the right side
+            if(array[mid] > key){
+                return recursiveBinarySearch(array, start, mid-1, key);
+            }
+            //if array[mid] is smaller than key we can ignore the left side
+            return recursiveBinarySearch(array, mid+1, end, key);
         }
         return -1;
     }
 
     //Time O(logn) | Space O(1)
-    private static int binarySearch(int array[],int key){
-        int start = 0, end = array.length - 1;
-        while(start <= end){
-            int mid = start + ((end-start)/2);
-            //check if x is present at mid
+    private static int binarySearch(int array[], int key){
+        int start = 0, end = array.length -1;
+        while (start <= end) {
+            int mid = start + ((end - start)/2);
+            //array[mid] is equal to value of key return index mid
             if(array[mid] == key){
                 return mid;
             }
-            //if key is greater, ignore left half
-            else if(array[mid] < key){
-                start = mid +1;
+            //if array[mid] is greater than key we can ignore the right side
+            if(array[mid] > key){
+                end = mid -1; 
             } else {
-            //if key is smaller, ignore right half
-            end = mid -1;
+                //if array[mid] is smaller than key we can ignore the left side
+                start = mid +1;
             }
         }
         return -1;

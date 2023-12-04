@@ -28,27 +28,33 @@ void swap(vector<int> &vector, int i, int j){
     vector[i] = temp;
 }
 
-//Time O(n) | Space O(1)
-int linearSearch(vector<int> vector, int key){
-    for(int i=0; i<vector.size(); i++){
-        if(vector[i] == key){
-            return i;
+int findKthPositive(vector<int> &vector, int k){
+    int missingNumCount = 0;
+    int diff = vector[0] - 1;
+    int currentMaxValue = 1;
+    
+    for(int i=0; i<vector.size();i++){
+        if(vector[i] - diff != currentMaxValue++){
+            missingNumCount ++;
+        }
+        
+        if(missingNumCount == k){
+            return currentMaxValue;
         }
     }
-    return  -1;
+    
+    
+
+    return  currentMaxValue;
 }
 
 
 int main(int argc, const char * argv[]) {
-    vector<int> input = {2,3,1,5,6,10};
-    int key = 5;
-    int result = linearSearch(input, key);
+    vector<int> input = {2,3,4,7,11};
+    int k = 1;
     
-    if(result == -1){
-        cout << "Element is not present in vector" << endl;
-    } else {
-        cout << "Element is present at index " << result <<endl;
-    }
+    int result = findKthPositive(input, k);
+    cout << result << endl;
     
 //    cout << "Input = ";
 //    printVector(inputVector);
