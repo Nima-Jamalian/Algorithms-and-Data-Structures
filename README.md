@@ -7,4 +7,10 @@ Sorting Algorithms Implementation
 
 Searching Algorithms Implementation
 - Linear Search (Java and C++)
-- Binary Search (Java and C++)
+- Binary Search (Java)
+
+Hashing Algorithms Implementation
+- Basic Hashing (Java)
+- Linar Probing (Java)
+- Quadratic Probing (Java)
+- Double Hashing (Java)
