@@ -1,6 +1,15 @@
 import java.util.Arrays;
 
 public class DoubleHashing {
+    /*
+     * Double Hashing
+     * h1(x) = x % mod
+     * h2(x) = R - (x % R)
+     * Where R is nernst prime number to mode value (R < mod)
+     * h`(x) = (h1(x) + (f(i)*h2(x))) % mod
+     * where f(i) = i
+     * i = 0,1,2,3,......
+     */
     private static void insert(int[] hashTable, int m, int r, int key){
         //first hash
         int firstHash = (key % m);
