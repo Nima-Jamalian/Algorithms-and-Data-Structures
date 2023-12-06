@@ -1,6 +1,13 @@
 import java.util.Arrays;
 
 public class QuadraticProbingHashing {
+     /*
+     * Quadratic Probing Hashing
+     * h(x) = x % mod
+     * h`(x) = (h(x) + f(i)^2) % mod
+     * where f(i) = i
+     * i = 0,1,2,3,......
+     */
     private static void insert(int[] hashTable, int m, int key){
         int i = 0;
         int idx = (key % m);
@@ -22,19 +29,20 @@ public class QuadraticProbingHashing {
                 return -1;
             }
             i++;
-            idx = ((key % m) + (i*i) % m);
+            idx = ((key % m) + (i*i)) % m;
         }
         return idx;
     }
 
     public static void main(String[] args) {
         //modular value
-        int m = 10;
+        int m = 13;
         int[] hashTable = new int[m];
-        insert(hashTable, m, 13);
-        insert(hashTable, m,23);
-        insert(hashTable, m, 53);
-        insert(hashTable, m, 27);
+        //insert element into hashtable
+        int[] input = {13,25,53,27,6,5};
+        for(int i=0; i<input.length; i++){
+            insert(hashTable, m, input[i]);
+        }
         System.out.println("Hash Table = " + Arrays.toString(hashTable));
         int key = 16;
         System.out.print("Search for element " + key + ":");

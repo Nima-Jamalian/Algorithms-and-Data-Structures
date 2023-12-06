@@ -49,14 +49,14 @@ public class DoubleHashing {
 
     public static void main(String[] args) {
         //modular values
-        int m = 10;
-        int r =7;
+        int m = 7;
+        int r = 5;
         int[] hashTable = new int[m];
-        insert(hashTable, m,r, 5);
-        insert(hashTable, m,r,15);
-        insert(hashTable, m,r, 35);
-        insert(hashTable, m,r, 45);
-        insert(hashTable, m,r, 85);
+        //insert element into hashtable
+        int[] input = {5,15,35,45,85};
+        for(int i=0; i<input.length; i++){
+            insert(hashTable, m,r, input[i]);
+        }
         System.out.println("Hash Table = " + Arrays.toString(hashTable));
         int key = 35;
         System.out.print("Search for element " + key + ":");

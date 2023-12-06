@@ -1,6 +1,13 @@
 import java.util.Arrays;
 
 public class LinearProbingHashing {
+    /*
+     * Linear Probing Hashing
+     * h(x) = x % mod
+     * h`(x) = (h(x) + f(i)) % mod
+     * where f(i) = i
+     * i = 0,1,2,3,......
+     */
     private static void insert(int[] hashTable, int m, int key){
         int i = 0;
         int idx = (key % m);
@@ -29,18 +36,17 @@ public class LinearProbingHashing {
 
     public static void main(String[] args) {
         //modular value
-        int m = 10;
+        int m = 19;
         int[] hashTable = new int[m];
-        insert(hashTable, m, 8);
-        insert(hashTable, m, 3);
-        insert(hashTable, m, 7);
-        insert(hashTable, m, 5);
-        insert(hashTable, m, 16);
-        insert(hashTable, m, 4);
-        insert(hashTable, m, 20);
-        insert(hashTable, m, 25);
-        System.out.println(Arrays.toString(hashTable));
-        int key = 16;
+        //insert element into hashtable
+        int[] input = {8,3,7,5,16,4,20,25,18};
+        for(int i=0; i<input.length; i++){
+            insert(hashTable, m, input[i]);
+        }
+        //delete input
+        input = null; 
+        System.out.println("Hash Table = " + Arrays.toString(hashTable));
+        int key = 25;
         System.out.print("Search for element " + key + ":");
         int result = search(hashTable, m, key);
         if(result == -1){
