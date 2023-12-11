@@ -36,7 +36,7 @@ public class LinearProbingHashing {
 
     public static void main(String[] args) {
         //modular value
-        int m = 19;
+        int m = 10;
         int[] hashTable = new int[m];
         //insert element into hashtable
         int[] input = {8,3,7,5,16,4,20,25,18};
