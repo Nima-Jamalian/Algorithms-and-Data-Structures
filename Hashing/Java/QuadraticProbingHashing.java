@@ -36,10 +36,10 @@ public class QuadraticProbingHashing {
 
     public static void main(String[] args) {
         //modular value
-        int m = 13;
+        int m = 10;
         int[] hashTable = new int[m];
         //insert element into hashtable
-        int[] input = {13,25,53,27,6,5};
+        int[] input = {8,3,10,5,16,30,20};
         for(int i=0; i<input.length; i++){
             insert(hashTable, m, input[i]);
         }

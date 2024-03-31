@@ -39,7 +39,7 @@ public class LinearProbingHashing {
         int m = 10;
         int[] hashTable = new int[m];
         //insert element into hashtable
-        int[] input = {8,3,7,5,16,4,20,25,18};
+        int[] input = {8,3,45,5,16,30,20,25,18};
         for(int i=0; i<input.length; i++){
             insert(hashTable, m, input[i]);
         }
