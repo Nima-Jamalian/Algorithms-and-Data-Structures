@@ -1,6 +1,7 @@
 # Algorithms and Data Structures
 Algorithms and Data Strucures Problems (C++)
-
+ - Questions and Answers
+   
 Sorting Algorithms Implementation
 - Bubble Sort (Java and C++)
 - Selection Sort (Java and C++)
