@@ -34,25 +34,19 @@ Only one valid answer exists.
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 */
-#include <iostream>
-#include <unordered_map>
-#include <vector>
-using namespace std;
-// Time O(n) | Space O(n)
-vector<int> twoSum(vector<int> &nums, int target)
-{
-    unordered_map<int, int> map;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if (map.contains(nums[i]))
-        {
-            return vector<int>{map[nums[i]], i};
+class Solution {
+public:
+    //Time O(n) | Space O(n)
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> map;
+        for(int i=0; i<nums.size(); i++){
+            if(map.contains(nums[i])){
+                return{map[nums[i]],i};
+            } else {
+                int diff =  target - nums[i];
+                map[diff] = i;
+            }
         }
-        else
-        {
-            int diff = target - nums[i];
-            map[diff] = i;
-        }
+        return {};
     }
-    return {};
-}
+};

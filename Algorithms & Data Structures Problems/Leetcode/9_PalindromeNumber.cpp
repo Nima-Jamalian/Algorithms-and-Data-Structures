@@ -29,25 +29,22 @@ Constraints:
 
 Follow up: Could you solve it without converting the integer to a string?
 */
-#include <iostream>
-#include <unordered_map>
-#include <vector>
-using namespace std;
-// Time O(n) | Space O(1)
-bool isPalindrome(int x)
-{
-    if (x < 0)
-    {
-        return false;
+class Solution {
+public:
+    //Time O(n) | Space O(1)
+    bool isPalindrome(int x) {
+        if(x < 0){
+            return false;
+        }
+        int digit = 0;
+        long int rev = 0;
+        int number = x;
+        while (number != 0) 
+            {
+                digit = number % 10;
+                rev = (rev * 10) + digit;
+                number = number / 10;
+            }
+        return (x == rev);
     }
-    int digit = 0;
-    long int rev = 0;
-    int number = x;
-    while (number != 0)
-    {
-        digit = number % 10;
-        rev = (rev * 10) + digit;
-        number = number / 10;
-    }
-    return (x == rev);
-}
+};

@@ -74,15 +74,6 @@ int romanToInt(string s)
             number = 1;
             break;
         }
-        if (number < prev)
-        {
-            result -= number;
-        }
-        else
-        {
-            result += number;
-        }
-        prev = number;
+        return result;
     }
-    return result;
-}
+};
