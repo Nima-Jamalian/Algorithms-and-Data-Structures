@@ -31,7 +31,7 @@ s and t consist of any valid ascii character.
 */
 class Solution {
 public:
-    // Time O(n) | Space O(n)
+    // Time O(n) | Space O(1)
     bool isIsomorphic(string s, string t) {
         if(s.size() != t.size()){
             return false;
