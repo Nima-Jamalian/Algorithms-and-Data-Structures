@@ -40,39 +40,44 @@ Input: s = "MCMXCIV"
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
-#include <iostream>
-using namespace std;
-//Time O(n) | Space O(n)
-int romanToInt(string s)
-{
-    int result = 0;
-    int number = 0;
-    int prev = 0;
-    for (int i = s.size() - 1; i >= 0; i--)
-    {
-        switch (s[i])
-        {
-        case 'M':
-            number = 1000;
-            break;
-        case 'D':
-            number = 500;
-            break;
-        case 'C':
-            number = 100;
-            break;
-        case 'L':
-            number = 50;
-            break;
-        case 'X':
-            number = 10;
-            break;
-        case 'V':
-            number = 5;
-            break;
-        case 'I':
-            number = 1;
-            break;
+class Solution {
+public:
+    //Time O(n) | Space O(1)
+    int romanToInt(string s) {
+        int result = 0;
+        int number = 0;
+        int prev = 0;
+        for(int i=s.size()-1;i >= 0 ;i--){
+            switch (s[i]){
+                case 'M':
+                    number = 1000;
+                    break;
+                case 'D':
+                    number = 500;
+                    break;
+                case 'C':
+                    number = 100;
+                    break;
+                case 'L':
+                    number = 50;
+                    break;
+                case 'X':
+                    number = 10;
+                    break;
+                case 'V':
+                    number = 5;
+                    break;
+                case 'I':
+                    number = 1;
+                    break;
+            }
+            if (number < prev) {
+                result -= number;
+            }
+            else {
+                result += number;
+            }
+            prev = number;
         }
         return result;
     }
