@@ -1,37 +1,61 @@
+/*
+14. Longest Common Prefix
+Easy
+String Trie
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+ 
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+ 
+
+Constraints:
+
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] consists of only lowercase English letters.
+*/
 class Solution {
 public:
-    static bool cmp(string &a, string &b){return (a.size()<b.size());}
-    //Time O(m*n) | Space O(1)
+    //Time O(S) | O(1)
+    //S sum of all characters in strings
     string longestCommonPrefix(vector<string>& strs) {  
     if(strs.size() <= 1){
         return strs[0];
     }
-    sort(strs.begin(),strs.end(),cmp);
     int strsIdx = 0;
     int charIdx = 0;
     char currentChar = strs[0][0];
-    bool hasPrefix = true;
     string prefix = "";
-    while(hasPrefix){
+    while(true){
         if(currentChar != strs[strsIdx][charIdx]){
-            hasPrefix = false;
+            return prefix;
+        }
+        if(strsIdx < strs.size()-1){
+            strsIdx++;
         } else {
-            if(strsIdx < strs.size()-1){
-                strsIdx++;
+            if(currentChar != NULL){
+                prefix += currentChar;
+            }
+            strsIdx = 0;
+            charIdx++;
+            if(charIdx < strs[0].size()){
+                currentChar = strs[strsIdx][charIdx];
             } else {
-                if(currentChar != NULL){
-                    prefix += currentChar;
-                }
-                strsIdx = 0;
-                charIdx++;
-                if(charIdx < strs[0].size()){
-                    currentChar = strs[strsIdx][charIdx];           
-                } else {
-                    hasPrefix = false;
-                }
+                return prefix;
             }
         }
     }
-    return prefix;
     }
 };
