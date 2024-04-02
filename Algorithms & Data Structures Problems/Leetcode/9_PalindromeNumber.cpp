@@ -1,6 +1,7 @@
 /*
 9. Palindrome Number
-Topics: Math
+Easy
+Math
 
 Given an integer x, return true if x is a
 palindrome

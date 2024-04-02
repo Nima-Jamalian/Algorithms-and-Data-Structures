@@ -1,6 +1,8 @@
 /*
 13. Roman to Integer
-Easy, Math, String, Hash Table
+Easy
+Math, String, Hash Table
+
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value
